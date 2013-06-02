@@ -1,6 +1,5 @@
 package derpbear;
 
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.PendingException;
@@ -10,9 +9,12 @@ import cucumber.api.PendingException;
  * User: bisbot
  * Date: 6/2/13
  * Time: 3:56 PM
- * To change this template use File | Settings | File Templates.
+ * Cucumber example with Webdriver and a page object framework
  */
+
 public class LandingPageStepdefs {
+
+
 
     @When("^I visit Derp-Bear$")
     public void I_visit_Derp_Bear() throws Throwable {

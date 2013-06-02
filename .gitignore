@@ -1,4 +1,6 @@
 *.class
+*.log
+/target
 
 # Package Files #
 *.jar
@@ -9,4 +11,4 @@
 /.idea
 *.iml
 
-*.log
+

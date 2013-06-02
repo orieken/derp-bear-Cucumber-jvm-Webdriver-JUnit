@@ -15,8 +15,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @Cucumber.Options(
-        format = {"progress","html:target/cucumber"}
+        format = {"html:target/cucumber"}
 )
 
-public class RunCucumberTests {
+public class RunCukeTest {
 }

@@ -7,3 +7,8 @@ Feature: Landing page feature
   Scenario: Landing page derp bear examples
     When I visit Derp-Bear
     Then I should see a list of available examples
+
+  Scenario: Pick a derp bear example
+    Given I visit Derp-Bear
+    When I pick a basic example
+    Then I should see be on the basic example page

@@ -1,5 +1,6 @@
 package derpbear;
 
+import org.apache.commons.lang3.text.WordUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,19 +20,26 @@ public class LandingPage extends Page{
     //elements
     By exampleListLocator = By.id("examples");
 
-
     public LandingPage examplesList(){
-        driver.findElement(exampleListLocator).click();
+        driver.findElement(exampleListLocator);
         return this;
     }
 
     // taking a stab at one method to pick an example since they all
     //follow the same pattern "some_name_example"
 
-    public LandingPage pickExample(String exampleName) {
-        String modifiedExampleName = exampleName.replaceAll(" ", "_").toLowerCase().concat("_example");
-        driver.findElement(By.id(modifiedExampleName));
-        return new LandingPage(driver);
+    public Page pickExample(String exampleName) {
+        String classExampleName = WordUtils.capitalize(exampleName).replaceAll(" ", "").concat("Page");
+
+        selectExample(exampleName);
+        return ttPage(classExampleName);
+    }
+
+    public Page selectExample(String exampleName){
+        String modifiedExampleName = exampleName.replaceAll(" ", "_").toLowerCase();
+        System.out.println(driver.findElement(By.id(modifiedExampleName)).getText());
+        driver.findElement(By.id(modifiedExampleName)).click();
+        return this;
     }
 
 }

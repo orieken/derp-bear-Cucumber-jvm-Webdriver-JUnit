@@ -5,9 +5,14 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.PendingException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.matchers.JUnitMatchers;
+
+import java.lang.reflect.Constructor;
+
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
@@ -27,7 +32,7 @@ public class LandingPageStepdefs {
     @Before
     public void setUp() {
         derpBearUrl = "http://derp-bear.herokuapp.com/";
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
     }
 
     @After
@@ -52,7 +57,15 @@ public class LandingPageStepdefs {
     @When("^I pick a basic example$")
     public void I_pick_a_basic_example() throws Throwable {
         LandingPage landingPage = new LandingPage(driver);
-        landingPage.pickExample("Basic Form");
+        landingPage.selectExample("Basic Form Example");
+        //landingPage.pickExample("Basic Form Example");
+//        String str = "derpbear.BasicFormExamplePage";
+//
+//        Class myClass =  Class.forName(str);
+//        Constructor constructor = myClass.getConstructor();
+//        Object dynamicInstanceOfMyClass = constructor.newInstance(driver);
+        Thread.sleep(20000);
+        System.out.println(driver.findElement(By.id("your_information")).getText());
     }
 
     @Then("^I should see be on the basic example page$")

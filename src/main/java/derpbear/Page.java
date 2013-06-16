@@ -1,8 +1,10 @@
 package derpbear;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.InvocationTargetException;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,9 +16,13 @@ import java.lang.reflect.InvocationTargetException;
 public class Page {
 
     protected WebDriver driver;
+    protected WebDriverWait shortWait;
+    protected WebDriverWait longWait;
 
     public Page(WebDriver driver) {
         this.driver = driver;
+        shortWait = new WebDriverWait(driver, 15);
+        longWait = new WebDriverWait(driver, 15);
     }
 
     public WebDriver driver() {

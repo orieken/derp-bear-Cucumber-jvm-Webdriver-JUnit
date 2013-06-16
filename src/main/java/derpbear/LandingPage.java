@@ -3,6 +3,8 @@ package derpbear;
 import org.apache.commons.lang3.text.WordUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,8 +39,9 @@ public class LandingPage extends Page{
 
     public Page selectExample(String exampleName){
         String modifiedExampleName = exampleName.replaceAll(" ", "_").toLowerCase();
-        System.out.println(driver.findElement(By.id(modifiedExampleName)).getText());
-        driver.findElement(By.id(modifiedExampleName)).click();
+        shortWait.until(presenceOfElementLocated(By.id(modifiedExampleName)));
+        WebElement listItem = driver.findElement(By.id(modifiedExampleName));
+        listItem.click();
         return this;
     }
 

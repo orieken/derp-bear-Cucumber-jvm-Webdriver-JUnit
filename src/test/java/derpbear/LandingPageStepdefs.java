@@ -34,8 +34,9 @@ public class LandingPageStepdefs {
 //hooks i want to move this later
     @Before
     public void setUp() {
-        //derpBearUrl = "http://derp-bear.herokuapp.com/";
-        derpBearUrl = "http://localhost:9393/";
+        derpBearUrl = "http://derp-bear.herokuapp.com/";
+        //if you have the derp-bear codebase you can use this url instead
+        //derpBearUrl = "http://localhost:9393/";
         //driver = new ChromeDriver();
 
         try {

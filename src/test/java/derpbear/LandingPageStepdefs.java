@@ -37,14 +37,17 @@ public class LandingPageStepdefs {
 
 //hooks i want to move this later
     @Before
-    public void setUp() throws Exception{
-        //derpBearUrl = "http://derp-bear.herokuapp.com/";
-        derpBearUrl = "http://localhost:9393/";
+    public void setUp() {
+        derpBearUrl = "http://derp-bear.herokuapp.com/";
+        //if you have the derp-bear codebase you can use this url instead
+        //derpBearUrl = "http://localhost:9393/";
+
         //driver = new ChromeDriver();
 
         try {
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
+            //update these for your version of the ios simulator
             capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
             capabilities.setCapability(CapabilityType.VERSION, "6.1");
             capabilities.setCapability(CapabilityType.PLATFORM, "Mac");

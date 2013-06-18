@@ -11,9 +11,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.matchers.JUnitMatchers;
 import org.openqa.selenium.iphone.IPhoneDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Constructor;
+import java.net.URL;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -33,13 +37,19 @@ public class LandingPageStepdefs {
 
 //hooks i want to move this later
     @Before
-    public void setUp() {
+    public void setUp() throws Exception{
         //derpBearUrl = "http://derp-bear.herokuapp.com/";
         derpBearUrl = "http://localhost:9393/";
         //driver = new ChromeDriver();
 
         try {
-            driver = new IPhoneDriver("http://0.0.0.0:5555/wd/hub");
+
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
+            capabilities.setCapability(CapabilityType.VERSION, "6.1");
+            capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
+
+            driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         } catch (Exception e){
             e.printStackTrace();
         }
